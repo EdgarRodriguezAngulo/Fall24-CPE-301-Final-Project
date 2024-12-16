@@ -66,30 +66,53 @@ States
 The following subsections describe how the state machine is used to dictate the actions of the swamp cooler, and determine how a user can and cannot interact with the system.
 
 ALL STATES
+
 1.) The real time clock (RTC) must be used to report the transitioning of one state to another. Additionally, a report must be generated and outputted to the serial monitor. This report includes the date and time of the state change, and from what state to the next state the system had transitioned to.
 
 IDLE
+
 1.) Green LED ON, the rest are OFF
+
 2.) Allow potentiometer to change the position of the stepper motor.
+
 3.) Monitor the temp/humidity and the water level, and display that information to the LCD. If the water is too low, transition to the ERROR state. 
+
 4.) Fan is OFF
+
 RUNNING
+
 1.) Blue LED ON, the rest are OFF
+
 2.) Allow potentiometer to change the position of the stepper motor
+
 3.) Fan is ON
+
 4.) Monitor the temp/humidity and the water level, and display those readings to the LCD. If the temp/humidity reading goes above the threshold, the system should transition to IDLE. If the water level goes below the threshold, the system should transition to the ERROR state
+
 5.) If the stop button is pressed, the system should transition to the DISABLED state
+
 DISABLED
+
 1.) Yellow LED ON, the rest are OFF
+
 2.) Do NOT monitor temp/humidity and water levels. LCD should be cleared
+
 3.) Start button monitored by ISR. If pressed, enter the RUNNING state
+
 4.) Do NOT allow the vent/stepper motor to change position
+
 5.) Fan is OFF
+
 ERROR
+
 1.) Red LED ON, the rest are OFF
+
 2.) Do NOT display the temp/humidity or the water level. Instead, display a Water Level LOW message.
+
 3.) Pressing the reset button should cause the system to transition to the IDLE state. If the water level is not sufficient, the IDLE state will return to ERROR
+
 4.) Fan is OFF
+
 
 ### Video demonstration
 https://drive.google.com/file/d/18-a7dweWBv35Zxsdg4fr2F8MQ52iMcrx/view?usp=drive_link
