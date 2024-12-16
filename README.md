@@ -32,21 +32,27 @@ The following list of components can be found in the starter kit
 ### Design Overview
 
 LEDs
+
 Four simple LEDs are used to visibly indicate which state the cooler is in. Yellow is disabled, green is idle, blue is running, and red is error. Each LED has a 330 ohm resistor for the power pin.
 
 Sensors
+
 The water level sensor has a minimum threshold of about 300 CHANGE SOON (threshold determined by the datasheet provided above), as it indicates that the water reservoir is less than half full. The temperature and humidity module has a minimum threshold of 700. Both are directly connected to ground and 5V power on the ground and power rails of the breadboard.
 
 Buttons
+
 Three buttons are used to Start, Stop, and Reset the system, and all three are wired up in a pull resistor configuration. Each button uses a 100 ohm resistor.
 
 Stepper Motor and fan
+
 The Arduino board itself cannot safely supply power to the stepper motor and the fan, so instead of being directly connected to the board or to power and ground rails drawing from the board, an external power supply is used. Using female-to-male cables, a small section of the breadboard is reserved to output 5V and GND from the external power supply, and from that, the fan motor, the stepper motor, and the fan motor's driver chip draws power from it.
 
 LCD
+
 I personally was running out of female-to-male cables, so I directly plugged my LCD into a spare breadboard I had, which draws power from the original breadboard's power rails. I then connected jumper cables accordingly. Rather than connecting VSS to a potentiometer, I simply connected it to ground. If you have problems reading the LCD display, then I recommend using a potentiometer.
 
 RTC
+
 This module was plugged into my spare breadboard, and I used jumper cables to connect the module to its respective pins on the Arduino board. It is directly connected to power and ground, using no resistor
 
 ### System constraints
